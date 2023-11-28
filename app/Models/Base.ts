@@ -7,7 +7,7 @@ export default class Base {
         public table: string,
         public IdField: string
     ) {}
-
+        
     async createItem(item) {
         let id;
         [id]= await Database.table(this.table).insert(item).returning(this.IdField);

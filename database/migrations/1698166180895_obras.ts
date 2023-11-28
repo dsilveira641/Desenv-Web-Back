@@ -8,8 +8,8 @@ export default class extends BaseSchema {
       table.increments('CTR_id')
       table.string('CTR_Name')
       table.dateTime('CTR_DeliveryForecast')
-      table.integer('CTR_AddedValue')
-      table.integer('CTR_AuthorizedBudget')
+      table.double('CTR_AddedValue')
+      table.double('CTR_AuthorizedBudget')
       table.boolean('CTR_Status')
     })
   }

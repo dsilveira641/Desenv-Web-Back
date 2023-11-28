@@ -24,12 +24,14 @@ Route.get('/', async () => {
   return { hello: 'world' }
 });
 
-
 Route.group(() => {
   Route.post("create/account", "AuthController.createAccount")
   Route.post("auth", "AuthController.auth")
+}).prefix('api')
+
+Route.group(() => {
   Route.post("crud/create", "CrudController.createResource")
   Route.delete("crud/delete/:id ", "CrudController.deleteResource")
   Route.patch("crud/update/:id", "CrudController.updateResource")
   Route.get("crud/list/:id", "CrudController.listResource")
-}).prefix('api');
+}).prefix('api').middleware('Auth');
